@@ -1,0 +1,4 @@
+# Sinais novos da Sinaliza IA
+# Uma linha por sinal, com 3 partes separadas por TAB (a tecla Tab do teclado):
+#   código FSW do SignMaker <TAB> palavra|outra palavra <TAB> quem escreveu ou revisou
+# Linhas que começam com # são comentários. Estes sinais aparecem primeiro na busca, com ⭐.

@@ -89,7 +89,13 @@ def mostrar_sinais(palavras, onde=st, por_linha=3):
             if verbete["autor"]:
                 autor = verbete["autor"]
                 legenda += " · " + (autor if len(autor) <= 40 else autor[:40] + "…")
-            imagem = escrita.desenhar(verbete["fsw"])
+            if verbete.get("proprio"):
+                legenda = "⭐ " + legenda  # sinal adicionado e revisado por nós
+            try:
+                imagem = escrita.desenhar(verbete["fsw"])
+            except Exception:
+                colunas[i % por_linha].caption(f"⚠️ Não consegui desenhar o sinal de {legenda}: confira o código FSW.")
+                continue
             colunas[i % por_linha].image(imagem, caption=legenda)
     if palavras:
         onde.caption(f"Fonte: dicionário de Libras do SignPuddle ({escrita.LINK_SIGNPUDDLE}). "
